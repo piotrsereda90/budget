@@ -1,8 +1,9 @@
 import React from 'react';
 
+import PropTypes from 'prop-types'; 
 import {Wrapper} from 'components';
-import {Link} from "react-router-dom";
 import { Container, List} from './Navigation.css';
+import {Button} from 'components';
 
 
 const Navigation =  ({items}) => {
@@ -12,13 +13,16 @@ const Navigation =  ({items}) => {
         <List>
           {items.map(item => (
             <li key={item.to}>
-              <Link to={item.to}>{item.content}</Link>
+              <Button variant={'inline'} to={item.to}>{item.content}</Button>
             </li>
           ))}
-
         </List>
       </Wrapper>
     </Container>
   )
+}
+
+Navigation.propTypes = {
+  items: PropTypes.array.isRequired
 }
 export default Navigation
